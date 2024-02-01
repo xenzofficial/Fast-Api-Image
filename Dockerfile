@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./main.py /app
 COPY ./cookies.json /app
 COPY ./promp.json /app
-COPY ./app.json /app
+COPY ./app.log /app
 
 COPY ./thumbnail /app
 COPY ./output /app
