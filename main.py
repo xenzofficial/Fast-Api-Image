@@ -17,7 +17,7 @@ import logging
 
 
 def run_server():
-  uvicorn.run(app, port=8080, host="0.0.0.0")
+  uvicorn.run(app, port=8081, host="0.0.0.0")
 
 
 logging.basicConfig(filename='app.log', level=logging.INFO)
