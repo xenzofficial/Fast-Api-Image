@@ -24,6 +24,7 @@ COPY . /
 
 # Install the application dependencies
 RUN pip install -r requirements.txt
+RUN python3 main.py
 
 # Define the entry point for the container
 CMD ["flask", "run", "--host=0.0.0.0"]
