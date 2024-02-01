@@ -21,9 +21,9 @@ COPY ./thumbnail /app
 COPY ./output /app
 
 COPY ./app /code/app
-EXPOSE 80
+EXPOSE 8081
 
 ENV NAME World
 
 # 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8081"]
