@@ -1,16 +1,27 @@
-# Use the official Python image as the base image
-FROM python:3.8
+# 
+FROM python:3.9
 
-# Set the working directory in the container
-WORKDIR /
+# 
+WORKDIR /code
+WORKDIR /app
 
-# Copy the application files into the working directory
-COPY . /
+# 
+COPY ./requirements.txt /code/requirements.txt
 
-# Install the application dependencies
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN python main.py
+# 
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# Define the entry point for the container
-#CMD ["Flask", "run", "--host=0.0.0.0"]
+# 
+COPY ./main.py /app
+COPY ./cookies.json /app
+COPY ./promp.json /app
+COPY ./app.json /app
+
+COPY ./thumbnail /app
+COPY ./output /app
+
+COPY ./app /code/app
+
+
+# 
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8081"]
