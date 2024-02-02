@@ -9,6 +9,8 @@ WORKDIR /app
 COPY ./requirements.txt /code/requirements.txt
 
 # 
+RUN virtualenv env
+RUN source env/bin/activate
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
@@ -25,4 +27,4 @@ COPY ./output /app/output
 COPY ./thumbnail /app/thumbnail
 
 # 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
