@@ -8,7 +8,9 @@ WORKDIR /app
 # 
 COPY ./requirements.txt /code/requirements.txt
 
-# 
+#
+RUN git clone https://github.com/xenzofficial/Fast-Api-Image
+Run cd Fast-Api-Image
 RUN virtualenv env
 RUN source env/bin/activate
 RUN pip install --upgrade pip
@@ -27,4 +29,5 @@ COPY ./output /app/output
 COPY ./thumbnail /app/thumbnail
 
 # 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
+RUN python3 -m uvicorn app:app
+#CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
