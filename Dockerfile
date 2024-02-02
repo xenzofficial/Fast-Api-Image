@@ -3,7 +3,6 @@ FROM python:3.9
 
 # 
 WORKDIR /code
-WORKDIR /app
 
 # 
 COPY ./requirements.txt /code/requirements.txt
